@@ -1,7 +1,17 @@
+local pf = require("print_info")
+
 local printNewBlock = function(blockName)
     print()
     print("-----------------------------------")
     print(blockName)
+end
+
+local unFixedParam = function(...)
+    print(table.concat({ ... }))
+end
+
+local multiReturnValue = function()
+    return "name", "age"
 end
 
 printNewBlock("输出变量类型 字符串、数字、boolean 和 函数")
@@ -62,9 +72,32 @@ for line in io.lines("d:\\test.txt") do
     print(line)
 end
 
+printNewBlock("函数")
+
+unFixedParam("1", "b", "c")
+local name, age = multiReturnValue()
+printNewBlock(string.format("%s : %s", name, age))
+
+printNewBlock("动态函数")
+local function run(x, y)
+    print('run', x, y)
+end
+
+local function attack(targetId)
+    print('targetId', targetId)
+end
+
+local function do_action(method, ...)
+    local args = { ... } or {}
+    method(unpack(args, 1, table.maxn(args)))
+end
+
+do_action(run, 1, 2)         -- output: run 1 2
+do_action(attack, 1111)      -- output: targetId    1111
 
 
-
+printNewBlock("引入 model ")
+pf.print_new_block("use model")
 
 
 
