@@ -1,0 +1,2 @@
+https://github.com/Idea-setting/IDEA-Setting.git
+https://github.com/Idea-setting/PyCharm.git
