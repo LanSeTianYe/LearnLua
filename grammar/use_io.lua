@@ -28,15 +28,15 @@ local file_path = "d:/qq.txt"
 
 local BUFFER_SIZE = (2 ^ 10)
 
-local file = io.open(file_path, "r")
+local file = assert(io.open(file_path, "r"), "文件打开失败: file:" .. file_path)
 
 local result = ""
 local content, line_end = file:read(BUFFER_SIZE, "*line")
 while nil ~= content do
     if nil == line_end then
-        result = result..content
+        result = result .. content
     else
-        result = result..content..line_end
+        result = result .. content .. line_end
     end
     content, line_end = file:read(BUFFER_SIZE, "*line")
 end
