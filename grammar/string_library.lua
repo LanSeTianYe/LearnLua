@@ -17,7 +17,10 @@ print(string.byte(name, 1, string.len(name)))
 -- 返回数字对应的ASCII组成的字符串
 print(string.char(96, 97, 98))
 -- 格式化字符串 %d 十进制 %x十六进制 %o八进制 %f浮点数 %s字符串
-print(string.format(""))
+print(string.format("%03d", 10))
+print(string.format("%03x", 10))
+print(string.format("%03o", 10))
+print(string.format("%04.4f", 10))
 -- 匹配字符串，匹配成功返回匹配的字符串
 print(string.match("hello lua", "lua"))
 print()
